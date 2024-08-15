@@ -17,8 +17,12 @@ function Cadastro() {
 
     //cria novo estado para os campos da tela
     const [campos, setCampos] = useState({
-        numeroNota: '',
-        nomeEmpresa: ''
+        notaEntrada: '',
+        codigoPeca: '',
+        quantidadePeca: '',
+        precoPeca: '',
+        totalPecas: '',
+        lote: ''
     });
 
     const [mensagem, setMensagem] = useState('');
@@ -40,15 +44,29 @@ function Cadastro() {
 
     function validarCampos() {
         const novosErros = {};
-        if (!campos.numeroNota) {
-            novosErros.numeroNota = 'E-mail é obrigatório';
+        if (!campos.notaEntrada) {
+            novosErros.numeroNota = 'nota  é obrigatório';
         }
 
-        if (!campos.nomeEmpresa) {
-            novosErros.nomeEmpresa = 'Nome é obrigatório';
+        if (!campos.codigoPeca) {
+            novosErros.codigoPeca = 'codigo da peca é obrigatório';
         }
 
+        if (!campos.quantidadePeca) {
+            novosErros.quantidadePeca = 'quantidade de pecas  é obrigatório';
+        }
 
+        if (!campos.precoPeca) {
+            novosErros.precoPeca = 'preco  da peca é obrigatório';
+        }
+
+        if (!campos.totalPecas) {
+            novosErros.totalPecas = 'total das pecas é obrigatório';
+        }
+
+        if (!campos.lote) {
+            novosErros.lote = 'lote da peca é obrigatório';
+        }
         setErros(novosErros);
 
         return Object.keys(novosErros).length === 0;
@@ -71,8 +89,12 @@ function Cadastro() {
 
                 // Limpar os campos do formulário após o envio
                 setCampos({
-                    numeroNota: '',
-                    nomeEmpresa: ''
+                    notaEntrada: '',
+                    codigoPeca: '',
+                    quantidadePeca: '',
+                    precoPeca: '',
+                    totalPecas: '',
+                    lote: ''
                 });
 
                 // Limpar mensagem após 3 segundos
@@ -99,22 +121,57 @@ function Cadastro() {
 
                         <div className="inline-fields">
                             <div className="field-maior">
-                                <label>numeroNota:
-                                    <input type="text" name="nome" id="nome" value={campos.numeroNota} onChange={handleInputChange} />
-                                    {erros.numeroNota && <p className="error">{erros.numeroNota}</p>}
+                                <label>nota de entrrada:
+                                    <input type="text" name="nota" id="notasdeentrada" value={campos.notaEntrada} onChange={handleInputChange} />
+                                    {erros.notaEntrada && <p className="error">{erros.notaEntrada}</p>}
                                 </label>
                             </div>
                         </div>    
 
                         <div className="inline-fields">
                             <div className="field-maior">
-                                <label>nome Empresa:
-                                    <input type="text" name="email" id="nomemaile" value={campos.nomeEmpresa} onChange={handleInputChange} />
-                                    {erros.nomeEmpresa && <p className="error">{erros.nomeEmpresa}</p>}
+                                <label>codigo pecas:
+                                    <input type="text" name="codigo" id="codigopecas" value={campos.codigoPeca} onChange={handleInputChange} />
+                                    {erros.codigoPeca && <p className="error">{erros.codigoPeca}</p>}
                                 </label>
                             </div>
                         </div>
 
+                        <div className="inline-fields">
+                            <div className="field-maior">
+                                <label>quantidade de pecas:
+                                    <input type="number" step="0.01" name="quantidade" id="quantidadepecas" value={campos.quantidadePeca} onChange={handleInputChange} />
+                                    {erros.quantidadePeca && <p className="error">{erros.quantidadePeca}</p>}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div className="inline-fields">
+                            <div className="field-maior">
+                                <label>precoPeca:
+                                    <input type="number" step="0.01" name="quantidade" id="nomemaile" value={campos.precoPeca} onChange={handleInputChange} />
+                                    {erros.precoPeca && <p className="error">{erros.precoPeca}</p>}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div className="inline-fields">
+                            <div className="field-maior">
+                                <label>total da peca:
+                                    <input type="number" step="0.01" name="total" id="totalpecas" value={campos.totalPecas} onChange={handleInputChange} />
+                                    {erros.totalPecas && <p className="error">{erros.totalPecas}</p>}
+                                </label>
+                            </div>
+                        </div>
+
+                        <div className='inline-filds'>
+                            <div className='field-maior'>
+                                <label>lote:
+                                    <input type='text' name='lote' id='lote' value={campos.lote} onChange={handleInputChange} />
+                                    {erros.lote && <p className='erro'>{erros.lote}</p>}
+                                </label>
+                            </div>
+                        </div>
                         <input type="submit" value="Salvar" />
                     </fieldset>
                 </form>
