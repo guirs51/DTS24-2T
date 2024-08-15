@@ -111,7 +111,7 @@ function Cadastro() {
                         <div className="inline-fields">
                             <div className="field-maior">
                                 <label>nome da Empresa:
-                                    <input type="text" name="nome" id="nome" value={campos.nomeEmpresa} onChange={handleInputChange} />
+                                    <input type="text" name="nome" id="nomeempresa" value={campos.nomeEmpresa} onChange={handleInputChange} />
                                     {erros.nomeEmpresa && <p className="error">{erros.nomeEmpresa}</p>}
                                 </label>
                             </div>
@@ -127,14 +127,14 @@ function Cadastro() {
 
                             <div className="field-menor">
                                 <label>contato:
-                                    <input type="password" name="senha" id="senha" value={campos.contato} onChange={handleInputChange} />
+                                    <input type="number"  name="contato" id="senha" value={campos.contato} onChange={handleInputChange} />
                                     {erros.contato && <p className="error">{erros.contato}</p>}
                                 </label>
                             </div>
 
                             <div className="field-menor">
                                 <label>fornecedor:
-                                    <input type="password" name="confirmarsenha" id="confirmarsenha" value={campos.fornecedor} onChange={handleInputChange} onBlur={validaConfirmacaoSenha}/>
+                                    <input type="text" name="confirmarsenha" id="confirmarsenha" value={campos.fornecedor} onChange={handleInputChange} onBlur={validaConfirmacaoSenha}/>
                                     {erros.fornecedora && <p className="error">{erros.fornecedor}</p>}
                                 </label>
                             </div>
